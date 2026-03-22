@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物業停車MVP - 歷史趨勢</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-header card">
+      <h1>物業停車智慧儀表板</h1>
+      <p>每個功能可視化：車位狀態、等待時間、違停提醒、剮蹭告警與趨勢</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-button" data-tab="dashboard">物業看板</button>
+      <button class="tab-button" data-tab="report">門崗上報</button>
+      <button class="tab-button active" data-tab="history">歷史趨勢</button>
+    </nav>
+
+    <main>
+      <section id="history" class="tab-panel active">
+        <h2>歷史趨勢</h2>
+        <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>狀態</th>
+                <th>可用車位</th>
+                <th>排隊車輛</th>
+                <th>預估等待（分鐘）</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

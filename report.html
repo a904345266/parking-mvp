@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物業停車MVP - 門崗上報</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-header card">
+      <h1>物業停車智慧儀表板</h1>
+      <p>每個功能可視化：車位狀態、等待時間、違停提醒、剮蹭告警與趨勢</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-button" data-tab="dashboard">物業看板</button>
+      <button class="tab-button active" data-tab="report">門崗上報</button>
+      <button class="tab-button" data-tab="history">歷史趨勢</button>
+    </nav>
+
+    <main>
+      <section id="report" class="tab-panel active">
+        <h2>門崗上報</h2>
+        <form id="reportForm" class="card form">
+        <label for="availableInput">可用車位</label>
+        <input id="availableInput" type="number" min="0" required>
+
+        <label for="queueInput">排隊車輛數</label>
+        <input id="queueInput" type="number" min="0" required>
+
+        <label for="releaseInput">近30分鐘平均放行速率（輛）</label>
+        <input id="releaseInput" type="number" min="0" step="0.1" required>
+
+        <label for="reporterInput">上報人</label>
+        <input id="reporterInput" type="text" required>
+
+        <label for="noteInput">備註（可選）</label>
+        <input id="noteInput" type="text">
+
+        <button type="submit">提交上報</button>
+        </form>
+        <p id="formMessage" class="form-message"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物業停車MVP - 物業看板</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-header card">
+      <h1>物業停車智慧儀表板</h1>
+      <p>每個功能可視化：車位狀態、等待時間、違停提醒、剮蹭告警與趨勢</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-button active" data-tab="dashboard">物業看板</button>
+      <button class="tab-button" data-tab="report">門崗上報</button>
+      <button class="tab-button" data-tab="history">歷史趨勢</button>
+    </nav>
+
+    <main>
+      <section id="dashboard" class="tab-panel active">
+        <div class="kpi-grid">
+          <article class="kpi card">
+            <p>停車場狀態</p>
+            <h3 id="statusText">--</h3>
+          </article>
+          <article class="kpi card">
+            <p>預估等待時間</p>
+            <h3><span id="waitMinutes">0</span> 分鐘</h3>
+          </article>
+          <article class="kpi card">
+            <p>可用車位 / 總車位</p>
+            <h3><span id="availableSpaces">0</span> / <span id="totalSpaces">0</span></h3>
+          </article>
+          <article class="kpi card">
+            <p>排隊車輛</p>
+            <h3><span id="queueCount">0</span> 輛</h3>
+          </article>
+        </div>
+
+        <div class="visual-grid">
+          <section class="card">
+            <h3>車位狀態占比</h3>
+            <div class="donut-wrap">
+              <div id="statusDonut" class="chart-box"></div>
+              <div id="donutLegend" class="legend-list"></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h3>等待時間趨勢（最近10筆）</h3>
+            <div id="waitTrendChart" class="trend-chart"></div>
+            <div class="trend-meta">
+              <span>當前：<strong id="waitNow">0</strong> 分鐘</span>
+              <span>平均：<strong id="waitAvg">0</strong> 分鐘</span>
+            </div>
+          </section>
+        </div>
+
+        <div class="visual-grid">
+          <section class="card">
+            <h3>違規停車提醒</h3>
+            <div id="violationChart" class="mini-chart"></div>
+            <p class="metric-inline">高風險區違停事件：<strong id="violationCount">0</strong></p>
+            <ul id="violationList" class="event-list"></ul>
+          </section>
+
+          <section class="card">
+            <h3>車輛剮蹭告警</h3>
+            <div id="scratchChart" class="mini-chart"></div>
+            <p class="metric-inline">待處理事件：<strong id="scratchCount">0</strong></p>
+            <ul id="scratchList" class="event-list"></ul>
+          </section>
+        </div>
+
+        <section class="card">
+          <h3>異常提醒總覽</h3>
+          <ul id="alertsList" class="event-list"></ul>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物業停車MVP - 違停事件詳情</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-header card">
+      <h1>物業停車智慧儀表板</h1>
+      <p>每個功能可視化：車位狀態、等待時間、違停提醒、剮蹭告警與趨勢</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-button" data-tab="dashboard">物業看板</button>
+      <button class="tab-button" data-tab="report">門崗上報</button>
+      <button class="tab-button" data-tab="history">歷史趨勢</button>
+    </nav>
+
+    <main>
+      <section class="card">
+        <h2>違停事件詳情</h2>
+        <div class="modal-content">
+          <img id="violationDetailImage" class="detail-image" alt="違停抓拍圖片">
+          <div class="detail-grid">
+            <p>位置：<strong id="violationDetailLocation">停車場A區-入口處</strong></p>
+            <p>時間：<strong id="violationDetailTime">2026-03-21 14:30</strong></p>
+            <p>事件狀態：<strong id="violationDetailStatus">待處理</strong></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

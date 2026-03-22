@@ -1,0 +1,26 @@
+{
+  "parking_status_thresholds": {
+    "idle_min_ratio_exclusive": 0.2,
+    "tight_min_ratio_inclusive": 0.05,
+    "tight_max_ratio_inclusive": 0.2,
+    "full_max_ratio_exclusive": 0.05
+  },
+  "reporting": {
+    "recommended_interval_minutes_min": 5,
+    "recommended_interval_minutes_max": 10,
+    "reminder_interval_minutes": 10
+  },
+  "alerts": {
+    "wait_time_alert_minutes": 15,
+    "state_transition_alerts": [
+      "tight_to_full",
+      "idle_to_full"
+    ]
+  },
+  "acceptance_targets": {
+    "dashboard_load_seconds_max": 30,
+    "single_report_action_seconds_max": 10,
+    "peak_status_accuracy_ratio_min": 0.8,
+    "wait_time_mape_ratio_max": 0.25
+  }
+}

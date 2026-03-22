@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ParkingMvpDataModel",
+  "type": "object",
+  "required": [
+    "site",
+    "latest_snapshot",
+    "history"
+  ],
+  "properties": {
+    "site": {
+      "type": "object",
+      "required": [
+        "site_id",
+        "site_name",
+        "total_spaces"
+      ],
+      "properties": {
+        "site_id": {
+          "type": "string"
+        },
+        "site_name": {
+          "type": "string"
+        },
+        "total_spaces": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "latest_snapshot": {
+      "$ref": "#/$defs/snapshot"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/snapshot"
+      }
+    }
+  },
+  "$defs": {
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "timestamp",
+        "available_spaces",
+        "queue_count",
+        "recent_release_per_30m",
+        "status",
+        "estimated_wait_minutes",
+        "reporter"
+      ],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "available_spaces": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "queue_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "recent_release_per_30m": {
+          "type": "number",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "idle",
+            "tight",
+            "full"
+          ]
+        },
+        "estimated_wait_minutes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "reporter": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
